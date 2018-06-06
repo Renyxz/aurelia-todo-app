@@ -1,0 +1,44 @@
+<template>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="twelve columns main-wrapper">
+
+        <h1>${ title }</h1>
+
+        <form class="input-form">
+
+          <input type="text" value.bind="todoEntry" placeholder="I have to..." >
+          <button class="button-primary" type="button" click.delegate="addTodo()">Add</button>
+        
+        </form>
+        
+        <div class="flash-msg" css="display: ${ message ? 'block' : 'none' }">
+          ${ message }
+        </div>
+      
+        <ul>
+      
+          <li class="list-item" repeat.for="todo of todoList" >
+        
+            <input type="checkbox" checked.bind="todo.done" >
+            
+            <span class="todo-description" css="text-decoration: ${ todo.done ? 'line-through' : 'none' }">
+              ${ todo.description }
+            </span>
+            
+            <button type="button" class="delete-button" click.delegate="removeTodo(todo)">remove</button>
+        
+          </li>
+      
+        </ul>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+</template>
